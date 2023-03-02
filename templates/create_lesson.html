@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1 style="text-align:center;" >CREATE A LESSON</h1>
+<form method='get' action="{{ url_for('teacher_dashboard') }}">
+    <input type="submit" value="Teacher Dashboard" name="Teacher Dashboard"/>
+</form>
+<form method="post" action="/logout">
+    <input type="submit" value="LOGOUT" name="LOGOUT"/>
+</form>
+
+<form style="text-align:center;" method="post" action="{{ url_for('create_lesson') }}">
+    <label for="lessonname">Lesson Name</label>
+    <input type="text" class="form-control" name="lessonname" placeholder="Lesson Name">
+    <button type="submit" class="btn btn-primary btn-block">CREATE</button>
+</form>
+
+<p>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</p>
+{% endblock %}

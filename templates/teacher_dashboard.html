@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h1 style="text-align:center;">TEACHER DASHBOARD</h1>
+ <form method="post" action="/logout">
+    <input type="submit" value="LOGOUT" name="LOGOUT"/>
+</form>
+
+<form style="text-align:center;" method="post" action="/teacher_dashboard">
+    <input type="submit" value="CREATE LESSON" name="CREATE LESSON"/>
+    <input type="submit" value="DELETE LESSON" name="DELETE LESSON" />
+    <input type="submit" value="ADD PAGE" name="ADD PAGE" />
+    <input type="submit" value="DELETE PAGE" name="DELETE PAGE" />
+    <input type="submit" value="VIEW EXERCISES" name="VIEW EXERCISES" />
+</form>
+
+
+<p style="text-align:center;">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <p class=flashes>
+                    <div>{{ message }}</div>
+            </p>
+        {% endif %}
+    {% endwith %}
+</p>
+
+{% endblock %}
